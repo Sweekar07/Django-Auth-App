@@ -1,0 +1,10 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+
+<h1>Dashboard : {{ request.user.username }}</h1>
+Date Joined: {{ request.user.date_joined}}
+Last login: {{ request.user.last_login}}
+<a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
+
+{% endblock %}
