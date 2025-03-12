@@ -2,9 +2,24 @@
 
 {% block content %}
 
-<h1>Dashboard : {{ request.user.username }}</h1>
-Date Joined: {{ request.user.date_joined}}
-Last login: {{ request.user.last_login}}
-<a href="{% url 'logout' %}" class="btn btn-dark">Logout</a>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg p-4 border-0 rounded-lg">
+            <h3 class="text-center mb-4">Welcome, {{ request.user.username }} 👋</h3>
 
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Date Joined:</strong>
+                    <span>{{ request.user.date_joined|date:"F d, Y H:i" }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Last Login:</strong>
+                    <span>{{ request.user.last_login|date:"F d, Y H:i" }}</span>
+                </li>
+            </ul>
+
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-block">Logout</a>
+        </div>
+    </div>
+</div>
 {% endblock %}
